@@ -29,9 +29,11 @@ glasses.setRandomPosition()
 owner.setRandomPosition()
 
 // ***this appears to do nothing at all***
-if (glasses.col === player.col) {
-    glasses.setRandomPosition()
-}
+// if (glasses.col === player.col) {
+//     glasses.setRandomPosition()
+// }
+
+
 
 
 function draw() {
@@ -40,19 +42,21 @@ function draw() {
 
     player.draw();
 
+
     if (glasses.col === player.col && glasses.row === player.row) {
         glasses.setRandomPosition();
-        owner.setRandomPosition();
     }
 
     glasses.drawGlasses();
 
     owner.drawOwner();
 
+    // this ensures that the drink and the owner do not end up in the same position
     if (owner.col === glasses.col && owner.row === glasses.row) {
         owner.setRandomPosition();
     }
 
+    // this ensures that the player and owner  can never occupy the same position
     if (owner.col === player.col && owner.row === player.row) {
         owner.setRandomPosition();
     }

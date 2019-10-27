@@ -39,8 +39,24 @@ class Player {
         this.tacocat = loadImage("../assets/tacocat.png")
     }
 
+    // let x = 0;
+    // let y = 0;
+    // let side = (WIDTH * 0.1);
+
     draw() {
         image(this.tacocat, this.col, this.row, (HEIGHT * 0.1), (WIDTH * 0.1))
+
+        // // moves x to the left by 1 pixel on every frame that the key is down
+        // if (keyIsDown(37) && x > 0) {
+        //     x--;
+        // } else if (keyIsDown(39) && x < WIDTH - side) {
+        //     x++;
+        // } else if (keyIsDown(40) && y > 0) {
+        //     y++;
+        // } else if (keyIsDown(38) && x > HEIGHT - side) {
+        //     y--;
+        // }
+
     }
 
     keyPressed() {
