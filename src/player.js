@@ -1,10 +1,11 @@
 let side = WIDTH / 10;
+let moveSpace = WIDTH / 100;
 
 class Player {
     constructor(col, row) {
         this.col = col;
         this.row = row;
-        this.img;
+        this.tacocat;
     }
 
     moveDown() {
@@ -33,12 +34,13 @@ class Player {
             this.col += side;
         }
     }
+
     preload() {
-        this.img = loadImage("../assets/tacocat.png")
+        this.tacocat = loadImage("../assets/tacocat.png")
     }
 
     draw() {
-        image(this.img, this.col, this.row, (HEIGHT * 0.1), (WIDTH * 0.1))
+        image(this.tacocat, this.col, this.row, (HEIGHT * 0.1), (WIDTH * 0.1))
     }
 
     keyPressed() {

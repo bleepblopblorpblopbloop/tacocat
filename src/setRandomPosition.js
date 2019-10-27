@@ -1,4 +1,4 @@
-class Owner {
+class setRandomPosition {
     constructor() {
         this.setRandomPosition()
     }
@@ -9,13 +9,5 @@ class Owner {
         this.row = Math.floor((Math.random() * 10)) * SQUARE_SIDE;
     }
 
-    preload() {
-        this.owner = loadImage("../assets/owner.png")
-    }
-
-
-    drawOwner() {
-        image(this.owner, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE)
-    }
 
 }
