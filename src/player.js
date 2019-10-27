@@ -1,4 +1,4 @@
-let side = 80;
+let side = WIDTH / 10;
 
 class Player {
     constructor(col, row) {
@@ -8,7 +8,7 @@ class Player {
     }
 
     moveDown() {
-        if (this.row < 720) {
+        if (this.row < (WIDTH - (WIDTH * 0.1))) {
             this.row += side;
             console.log(this.col)
         }
@@ -23,13 +23,13 @@ class Player {
     }
 
     moveLeft() {
-        if (this.col < 800 && this.col >= 80) {
+        if (this.col < HEIGHT && this.col >= (HEIGHT * 0.1)) {
             this.col -= side;
         }
     }
 
     moveRight() {
-        if (this.col < 720) {
+        if (this.col < (HEIGHT - (HEIGHT * 0.1))) {
             this.col += side;
         }
     }
@@ -38,7 +38,7 @@ class Player {
     }
 
     draw() {
-        image(this.img, this.col, this.row, 80, 80)
+        image(this.img, this.col, this.row, (HEIGHT * 0.1), (WIDTH * 0.1))
     }
 
     keyPressed() {

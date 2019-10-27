@@ -5,14 +5,14 @@ let img2;
 function preload() {
     // img = loadImage("../assets/tacocat.png")
     player.preload()
-    treasure.preload()
+    glasses.preload()
 }
 
 function keyPressed() {
     player.keyPressed()
 }
 const game = new Game()
-const treasure = new Treasure;
+const glasses = new Glasses;
 
 function setup() {
     let canvas = createCanvas(WIDTH, WIDTH);
@@ -20,20 +20,20 @@ function setup() {
 }
 
 
-treasure.setRandomPositon()
+glasses.setRandomPositon()
 
-if (treasure.col === player.col) {
-    treasure.setRandomPositon()
+if (glasses.col === player.col) {
+    glasses.setRandomPositon()
 }
 
 function draw() {
     game.drawGrid();
     player.draw();
 
-    if (treasure.col === player.col && treasure.row === player.row) {
-        treasure.setRandomPositon();
+    if (glasses.col === player.col && glasses.row === player.row) {
+        glasses.setRandomPositon();
     }
 
-    treasure.drawTreasure();
+    glasses.drawGlasses();
 
 }

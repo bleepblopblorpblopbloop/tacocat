@@ -1,8 +1,6 @@
-class Treasure {
+class Glasses {
     constructor() {
         this.setRandomPositon()
-        // this.col;
-        // this.row
     }
 
     setRandomPositon() {
@@ -13,11 +11,11 @@ class Treasure {
 
 
     preload() {
-        this.img2 = loadImage("../assets/josephine-versoza-pixel-mug-beer.jpg")
+        this.img2 = loadImage("../assets/beermug.png")
     }
 
 
-    drawTreasure() {
+    drawGlasses() {
         image(this.img2, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE)
     }
 
