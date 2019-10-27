@@ -42,14 +42,20 @@ function draw() {
 
     if (glasses.col === player.col && glasses.row === player.row) {
         glasses.setRandomPosition();
-        // owner.setRandomPosition();
+        owner.setRandomPosition();
     }
 
     glasses.drawGlasses();
 
-    // if (owner.col === player.col || glasses.col && owner.row === player.row || glasses.row) {
-    //     owner.setRandomPosition();
-    // }
-
     owner.drawOwner();
+
+    if (owner.col === glasses.col && owner.row === glasses.row) {
+        owner.setRandomPosition();
+    }
+
+    if (owner.col === player.col && owner.row === player.row) {
+        owner.setRandomPosition();
+    }
+
+
 }
