@@ -1,6 +1,9 @@
 class CatLady {
-    constructor() {
-        this.setRandomPosition()
+    constructor(col, row) {
+        // this.setRandomPosition()
+        this.col = col;
+        this.row = row;
+        this.catLady;
 
     }
 
@@ -21,54 +24,102 @@ class CatLady {
     drawCatLady() {
         image(this.catLady, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE)
 
-        // // determines the distance between the catlady and the drink
+    }
+    distanceCheck() {
+        while (this.col < glasses.col) {
+            this.col += SQUARE_SIDE
+            console.log(`x: ${this.col}`)
+        }
 
-        // distanceCheck() {
-        //     // drink position
-        //     let target = {
-        //         x: 320,
-        //         y: 160,
-        //     };
+        while (this.row < glasses.row) {
+            this.row += SQUARE_SIDE
+            console.log(`y: ${this.row}`)
+        }
 
-        //     // mycatLady position
-        //     let ladyPosition = {
-        //         x: 80,
-        //         y: 80
-        //     };
+        while (this.col > glasses.col) {
+            this.col -= SQUARE_SIDE
+            console.log(`x: ${this.col}`)
+        }
 
-        //     // subtract (= difference vector)
-        //     //let dx = target.x - ladyPosition.x;
-        //     //let dy = target.y - ladyPosition.y;
-
-
-        //     while (ladyPosition.x < target.x) {
-        //         ladyPosition.x += 80
-        //         console.log(ladyPosition.x)
-        //     }
-
-        //     while (ladyPosition.y < target.y) {
-        //         ladyPosition.y += 80
-        //         console.log(ladyPosition.y)
-        //     }
-        //     // normalize (= direction vector)
-        //     // // (a direction vector has a length of 1)
-        //     // let length = Math.sqrt(dx * dx + dy * dy);
-        //     // if (length) {
-        //     //     dx /= length;
-        //     //     dy /= length;
-        //     // }
-
-        //     // move
-        //     // delta is the elapsed time in seconds
-        //     // SPEED is the speed in units per second (UPS)
-        //     // ladyPosition.x += dx
-        //     // ladyPosition.y += dy
-        //     // console.log(ladyPosition.x)
-
-
-        // }
-
+        while (this.row > glasses.row) {
+            this.row -= SQUARE_SIDE
+            console.log(`y: ${this.row}`)
+        }
 
     }
+
+    // determines the distance between the catlady and the drink
+    // distanceCheck() {
+    //     // drink position
+    //     let target = {
+    //         x: glasses.col,
+    //         y: glasses.row
+    //     };
+
+    //     // mycatLady position
+    //     let ladyPosition = {
+    //         x: catLady.col,
+    //         y: catLady.row
+    //     };
+
+
+    //     while (this.col !== target.x && this.row !== target.y) {
+    //         // setInterval(() => {
+    //         if (catLady.col < target.x) {
+
+    //             this.col += SQUARE_SIDE
+
+    //             console.log(`x: ${ladyPosition.x}`)
+    //         }
+
+    //         if (this.row < target.y) {
+    //             this.row += SQUARE_SIDE
+    //             console.log(`y: ${ladyPosition.y}`)
+    //         }
+
+    //         if (this.col > target.x) {
+    //             this.col -= SQUARE_SIDE
+    //             console.log(`x: ${ladyPosition.x}`)
+    //         }
+
+    //         if (this.row > target.y) {
+    //             this.row -= SQUARE_SIDE
+    //             console.log(`y: ${ladyPosition.x}`)
+    //         }
+
+    //     }
+    // }
+
+
+    // while (ladyPosition.x < target.x) {
+    //     ladyPosition.x += SQUARE_SIDE
+    //     console.log(`x: ${ladyPosition.x}`)
+    // }
+
+    // while (ladyPosition.y < target.y) {
+    //     ladyPosition.y += SQUARE_SIDE
+    //     console.log(`y: ${ladyPosition.y}`)
+    // }
+
+    // while (ladyPosition.x > target.x) {
+    //     ladyPosition.x -= SQUARE_SIDE
+    //     console.log(`x: ${ladyPosition.x}`)
+    // }
+
+    // while (ladyPosition.y > target.y) {
+    //     ladyPosition.y -= SQUARE_SIDE
+    //     console.log(`y: ${ladyPosition.y}`)
+    // }
+
+    // }
+
+    // }
+    // }
+
+    // }
+
+    // const catLady = new CatLady(10, 10);
+
+    // console.log(catLady.col, catLady.row)
 
 }

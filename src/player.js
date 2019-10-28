@@ -11,14 +11,14 @@ class Player {
     moveDown() {
         if (this.row < (WIDTH - (WIDTH * 0.1))) {
             this.row += side;
-            console.log(this.col)
+            // console.log(this.col)
         }
     }
 
     moveUp() {
         if (this.row > 0) {
             this.row -= side;
-            console.log(this.col)
+            // console.log(this.col)
 
         }
     }
@@ -44,7 +44,7 @@ class Player {
     // let side = (WIDTH * 0.1);
 
     draw() {
-        image(this.tacocat, this.col, this.row, (HEIGHT * 0.1), (WIDTH * 0.1))
+        image(this.tacocat, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE)
 
         // // moves x to the left by 1 pixel on every frame that the key is down
         // if (keyIsDown(37) && x > 0) {

@@ -16,20 +16,19 @@ class Glasses {
 
     // positions the glass on the grid
     drawGlasses() {
-        // image(this.beer, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE)
-        image(this.beer, HEIGHT * .7, WIDTH * .1, SQUARE_SIDE, SQUARE_SIDE)
+        image(this.beer, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE)
     }
 
     // this moves the glass in the direction of the keyPress
     keyPressed() {
         if (keyCode === 37) {
-            this.moveLeft();
+            this.col -= SQUARE_SIDE
         } else if (keyCode === 39) {
-            this.moveRight();
+            this.col += SQUARE_SIDE
         } else if (keyCode === 40) {
-            this.moveDown();
+            this.row += SQUARE_SIDE
         } else if (keyCode === 38) {
-            this.moveUp();
+            this.row -= SQUARE_SIDE
         }
     }
 

@@ -16,7 +16,7 @@ function keyPressed() {
 }
 const game = new Game();
 const glasses = new Glasses();
-const catLady = new CatLady();
+let catLady = new CatLady(3, 3);
 
 function setup() {
     let canvas = createCanvas(WIDTH, WIDTH);
@@ -24,7 +24,7 @@ function setup() {
 }
 
 // glasses.setRandomPosition();
-catLady.setRandomPosition();
+// catLady.setRandomPosition();
 
 // ***this appears to do nothing at all***
 // if (glasses.col === player.col) {
@@ -32,6 +32,8 @@ catLady.setRandomPosition();
 // }
 
 function draw() {
+    catLady.distanceCheck();
+
     game.drawGrid();
     game.drawTable();
 
@@ -43,7 +45,6 @@ function draw() {
 
 
     glasses.drawGlasses();
-
     catLady.drawCatLady();
 
     // this ensures that the drink and the catLady do not end up in the same position
@@ -58,79 +59,47 @@ function draw() {
 }
 
 
-// // determines the distance between the catlady and the drink
 
-function distanceCheck() {
-    // drink position
-    let target = {
-        x: 80,
-        y: 80,
-    };
-
-    // mycatLady position
-    let ladyPosition = {
-        x: 320,
-        y: 160
-    };
-
-    // subtract (= difference vector)
-    let dx = target.x - ladyPosition.x;
-    //let dy = target.y - ladyPosition.y;
-
-
-    while (ladyPosition.x < target.x) {
-        ladyPosition.x += 80
-        console.log(ladyPosition.x)
-    }
-
-    while (ladyPosition.y < target.y) {
-        ladyPosition.y += 80
-        console.log(ladyPosition.y)
-    }
-
-    while (ladyPosition.x > target.x) {
-        ladyPosition.x -= 80
-        console.log(ladyPosition.x)
-    }
-
-    while (ladyPosition.y > target.y) {
-        ladyPosition.y -= 80
-        console.log(ladyPosition.y)
-    }
-    // normalize (= direction vector)
-    // // (a direction vector has a length of 1)
-    // let length = Math.sqrt(dx * dx + dy * dy);
-    // if (length) {
-    //     dx /= length;
-    //     dy /= length;
-    // }
-
-    // move
-    // delta is the elapsed time in seconds
-    // SPEED is the speed in units per second (UPS)
-    // ladyPosition.x += dx
-    // ladyPosition.y += dy
-    // console.log(ladyPosition.x)
-
-
-}
-
-
-distanceCheck()
+// determines the distance between the catlady and the drink
 
 // function distanceCheck() {
+//     // drink position
+//     let target = {
+//         x: glasses.col,
+//         y: glasses.row
+//     };
 
-//     let distance = 0;
+//     // mycatLady position
+//     let ladyPosition = {
+//         x: catLady.col,
+//         y: catLady.row
+//     };
 
-//     if ((glasses.row, glasses.col) !== (catlady.row, catlady.col)) {
-//         distance += (catlady.row - glasses.row) + (catlady.col - glasses.col);
-//         return distance;
+//     while (catLady.col !== target.x && catLady.row !== target.y) {
+//         setInterval(() => {
+//             if (catLady.col < target.x) {
+
+//                 catLady.col += SQUARE_SIDE
+
+//                 console.log(`LADY: ${ladyPosition}`)
+//             }
+
+//             if (catLady.row < target.y) {
+//                 catLady.row += SQUARE_SIDE
+//                 console.log(`LADY: ${ladyPosition}`)
+//             }
+
+//             if (catLady.col > target.x) {
+//                 catLady.col -= SQUARE_SIDE
+//                 console.log(`LADY: ${ladyPosition}`)
+//             }
+
+//             if (catLady.row > target.y) {
+//                 catLady.row -= SQUARE_SIDE
+//                 console.log(`LADY: ${ladyPosition}`)
+//             }
+//         }, 1000)
 //     }
-//     console.log(distance);
-// }
 
 
-// creates the distnce function
-// const distance = (a, b) => {
-//     return Math.sqrt((a.position[0] - b.position[0]) ** 2 + (a.position[1] - b.position[1]) ** 2)
-// }
+// distanceCheck()
