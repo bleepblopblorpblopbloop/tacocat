@@ -1,5 +1,5 @@
 let side = WIDTH / 10;
-let moveSpace = WIDTH / 100;
+// let moveSpace = WIDTH / 100;
 
 class Player {
     constructor(col, row) {

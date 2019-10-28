@@ -3,7 +3,6 @@ let beer;
 let ryeAndCoke;
 let martini;
 let pizza;
-// let catLady;
 
 function preload() {
     player.preload();
@@ -34,6 +33,7 @@ catLady.setRandomPosition();
 
 function draw() {
     game.drawGrid();
+    game.drawTable();
 
     player.draw();
 
@@ -56,3 +56,81 @@ function draw() {
         catLady.setRandomPosition();
     }
 }
+
+
+// // determines the distance between the catlady and the drink
+
+function distanceCheck() {
+    // drink position
+    let target = {
+        x: 80,
+        y: 80,
+    };
+
+    // mycatLady position
+    let ladyPosition = {
+        x: 320,
+        y: 160
+    };
+
+    // subtract (= difference vector)
+    let dx = target.x - ladyPosition.x;
+    //let dy = target.y - ladyPosition.y;
+
+
+    while (ladyPosition.x < target.x) {
+        ladyPosition.x += 80
+        console.log(ladyPosition.x)
+    }
+
+    while (ladyPosition.y < target.y) {
+        ladyPosition.y += 80
+        console.log(ladyPosition.y)
+    }
+
+    while (ladyPosition.x > target.x) {
+        ladyPosition.x -= 80
+        console.log(ladyPosition.x)
+    }
+
+    while (ladyPosition.y > target.y) {
+        ladyPosition.y -= 80
+        console.log(ladyPosition.y)
+    }
+    // normalize (= direction vector)
+    // // (a direction vector has a length of 1)
+    // let length = Math.sqrt(dx * dx + dy * dy);
+    // if (length) {
+    //     dx /= length;
+    //     dy /= length;
+    // }
+
+    // move
+    // delta is the elapsed time in seconds
+    // SPEED is the speed in units per second (UPS)
+    // ladyPosition.x += dx
+    // ladyPosition.y += dy
+    // console.log(ladyPosition.x)
+
+
+}
+
+
+distanceCheck()
+
+// function distanceCheck() {
+
+//     let distance = 0;
+
+//     if ((glasses.row, glasses.col) !== (catlady.row, catlady.col)) {
+//         distance += (catlady.row - glasses.row) + (catlady.col - glasses.col);
+//         return distance;
+//     }
+//     console.log(distance);
+// }
+
+
+// creates the distnce function
+// const distance = (a, b) => {
+//     return Math.sqrt((a.position[0] - b.position[0]) ** 2 + (a.position[1] - b.position[1]) ** 2)
+// }

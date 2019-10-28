@@ -9,42 +9,15 @@ class Glasses {
         this.row = Math.floor((Math.random() * 10)) * SQUARE_SIDE;
     }
 
-    // 
-    moveDown() {
-        if (this.row < (WIDTH - (WIDTH * 0.1))) {
-            this.row += side;
-            console.log(this.col)
-        }
-    }
-
-    moveUp() {
-        if (this.row > 0) {
-            this.row -= side;
-            console.log(this.col)
-
-        }
-    }
-
-    moveLeft() {
-        if (this.col < HEIGHT && this.col >= (HEIGHT * 0.1)) {
-            this.col -= side;
-        }
-    }
-
-    moveRight() {
-        if (this.col < (HEIGHT - (HEIGHT * 0.1))) {
-            this.col += side;
-        }
-    }
-
 
     preload() {
         this.beer = loadImage("../assets/beermug.png")
     }
 
-
+    // positions the glass on the grid
     drawGlasses() {
-        image(this.beer, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE)
+        // image(this.beer, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE)
+        image(this.beer, HEIGHT * .7, WIDTH * .1, SQUARE_SIDE, SQUARE_SIDE)
     }
 
     // this moves the glass in the direction of the keyPress

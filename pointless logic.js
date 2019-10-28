@@ -18,3 +18,17 @@
  //     line(0, i + 80, 800, i + 80)
  // }
  // pop()
+
+
+
+
+ let drinksArray = [];
+
+ drink {
+     x: ,
+     y:
+ }
+
+ for (let i = 0; i <= drinksArray.length; i++) {
+
+ }
