@@ -9,7 +9,7 @@
 
 
 
-// ****THIS ONE WORKS WHEN PLACED IN MAIN.JS - it just doesn't move thepicture but the character actually moves accorduing to the math
+// ****THIS ONE WORKS WHEN PLACED IN MAIN.JS - it just doesn't move the picture but the character actually moves accorduing to the math
 // // determines the distance between the catlady and the drink
 
 // function distanceCheck() {
@@ -18,44 +18,28 @@
 //         x: glasses.col,
 //         y: glasses.row
 //     };
-
 //     // mycatLady position
 //     let ladyPosition = {
 //         x: catLady.col,
 //         y: catLady.row
 //     };
-
-// subtract (= difference vector)
-// let dx = target.x - ladyPosition.x;
-//let dy = target.y - ladyPosition.y;
-
-
 // while (ladyPosition.x < target.x) {
 //     ladyPosition.x += 80
 //     console.log(`x: ${ladyPosition.x}`)
 // }
-
 // while (ladyPosition.y < target.y) {
 //     ladyPosition.y += 80
 //     console.log(`y: ${ladyPosition.y}`)
 // }
-
 // while (ladyPosition.x > target.x) {
 //     ladyPosition.x -= 80
 //     console.log(`x: ${ladyPosition.x}`)
 // }
-
 // while (ladyPosition.y > target.y) {
 //     ladyPosition.y -= 80
 //     console.log(`y: ${ladyPosition.y}`)
 // }
-// normalize (= direction vector)
-// // (a direction vector has a length of 1)
-// let length = Math.sqrt(dx * dx + dy * dy);
-// if (length) {
-//     dx /= length;
-//     dy /= length;
-// }
+
 
 // move
 // delta is the elapsed time in seconds

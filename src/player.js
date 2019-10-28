@@ -1,4 +1,4 @@
-let side = WIDTH / 10;
+// let side = WIDTH / 10;
 // let moveSpace = WIDTH / 100;
 
 class Player {
@@ -10,14 +10,14 @@ class Player {
 
     moveDown() {
         if (this.row < (WIDTH - (WIDTH * 0.1))) {
-            this.row += side;
+            this.row += SQUARE_SIDE;
             // console.log(this.col)
         }
     }
 
     moveUp() {
         if (this.row > 0) {
-            this.row -= side;
+            this.row -= SQUARE_SIDE;
             // console.log(this.col)
 
         }
@@ -25,13 +25,13 @@ class Player {
 
     moveLeft() {
         if (this.col < HEIGHT && this.col >= (HEIGHT * 0.1)) {
-            this.col -= side;
+            this.col -= SQUARE_SIDE;
         }
     }
 
     moveRight() {
         if (this.col < (HEIGHT - (HEIGHT * 0.1))) {
-            this.col += side;
+            this.col += SQUARE_SIDE;
         }
     }
 
