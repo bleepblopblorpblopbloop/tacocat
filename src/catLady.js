@@ -1,4 +1,4 @@
-class Owner {
+class CatLady {
     constructor() {
         this.setRandomPosition()
     }
@@ -10,12 +10,12 @@ class Owner {
     }
 
     preload() {
-        this.owner = loadImage("../assets/owner.png")
+        this.catLady = loadImage("../assets/catLady.png")
     }
 
 
-    drawOwner() {
-        image(this.owner, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE)
+    drawCatLady() {
+        image(this.catLady, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE)
     }
 
 }

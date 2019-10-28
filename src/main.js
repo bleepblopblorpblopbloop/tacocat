@@ -9,7 +9,7 @@ let pizza;
 function preload() {
     player.preload()
     glasses.preload()
-    owner.preload()
+    catLady.preload()
 }
 
 function keyPressed() {
@@ -17,7 +17,7 @@ function keyPressed() {
 }
 const game = new Game();
 const glasses = new Glasses();
-const owner = new Owner();
+const catLady = new CatLady();
 
 function setup() {
     let canvas = createCanvas(WIDTH, WIDTH);
@@ -26,7 +26,7 @@ function setup() {
 
 
 glasses.setRandomPosition()
-owner.setRandomPosition()
+catLady.setRandomPosition()
 
 // ***this appears to do nothing at all***
 // if (glasses.col === player.col) {
@@ -49,16 +49,16 @@ function draw() {
 
     glasses.drawGlasses();
 
-    owner.drawOwner();
+    catLady.drawCatLady();
 
-    // this ensures that the drink and the owner do not end up in the same position
-    if (owner.col === glasses.col && owner.row === glasses.row) {
-        owner.setRandomPosition();
+    // this ensures that the drink and the catLady do not end up in the same position
+    if (catLady.col === glasses.col && catLady.row === glasses.row) {
+        catLady.setRandomPosition();
     }
 
-    // this ensures that the player and owner  can never occupy the same position
-    if (owner.col === player.col && owner.row === player.row) {
-        owner.setRandomPosition();
+    // this ensures that the player and catLady  can never occupy the same position
+    if (catLady.col === player.col && catLady.row === player.row) {
+        catLady.setRandomPosition();
     }
 
 
