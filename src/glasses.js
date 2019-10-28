@@ -9,19 +9,33 @@ class Glasses {
         this.row = Math.floor((Math.random() * 10)) * SQUARE_SIDE;
     }
 
-    // this slides the beer one position to the side opposite from the direction which tacocat is pushing
-    // slideToNextSpot() {
-    //     if (glasses.setRandomPosition().this.row === (player.this.row + (WIDTH * 0.1) && player.keyPressed() === 39)) {
-    //         glasses.setRandomPosition().this.row += (WIDTH * 0.1);
-    //     } else if (glasses.setRandomPosition().this.row === (player.this.row - (WIDTH * 0.1) && player.keyPressed() === 37)) {
-    //         glasses.setRandomPosition().this.row -= (WIDTH * 0.1);
-    //     } else if (glasses.setRandomPosition().this.col === (player.this.col + (HEIGHT * 0.1) && player.keyPressed() === 38)) {
-    //         glasses.setRandomPosition().this.col -= (HEIGHT * 0.1);
-    //     } else if (glasses.setRandomPosition().this.col === (player.this.col - (HEIGHT * 0.1) && player.keyPressed() === 40)) {
-    //         glasses.setRandomPosition().this.col += (HEIGHT * 0.1);
-    //     }
+    // 
+    moveDown() {
+        if (this.row < (WIDTH - (WIDTH * 0.1))) {
+            this.row += side;
+            console.log(this.col)
+        }
+    }
 
-    // }
+    moveUp() {
+        if (this.row > 0) {
+            this.row -= side;
+            console.log(this.col)
+
+        }
+    }
+
+    moveLeft() {
+        if (this.col < HEIGHT && this.col >= (HEIGHT * 0.1)) {
+            this.col -= side;
+        }
+    }
+
+    moveRight() {
+        if (this.col < (HEIGHT - (HEIGHT * 0.1))) {
+            this.col += side;
+        }
+    }
 
 
     preload() {
@@ -31,6 +45,19 @@ class Glasses {
 
     drawGlasses() {
         image(this.beer, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE)
+    }
+
+    // this moves the glass in the direction of the keyPress
+    keyPressed() {
+        if (keyCode === 37) {
+            this.moveLeft();
+        } else if (keyCode === 39) {
+            this.moveRight();
+        } else if (keyCode === 40) {
+            this.moveDown();
+        } else if (keyCode === 38) {
+            this.moveUp();
+        }
     }
 
 }
