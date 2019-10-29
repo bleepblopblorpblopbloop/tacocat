@@ -3,31 +3,30 @@ let beer;
 let ryeAndCoke;
 let martini;
 let pizza;
-// const beerGlass = new Glasses();
 
-
+// preloads the different elements of the game that require an image
 function preload() {
     player.preload();
     glasses.preload();
     glasses2.preload();
     glasses3.preload();
-
     catLady.preload();
 }
 
+// recognizes the keys being pressed in order to direct tacocat
 function keyPressed() {
     player.keyPressed();
 }
 
-
+// generates a new game to start the game
 const game = new Game();
 
-
+// generates new glasses of the type specified to start the game
 const glasses = new Glasses('matini');
 const glasses2 = new Glasses('beermug');
 const glasses3 = new Glasses('rye_and_coke');
 
-
+// generates a new catLady to start the game
 let catLady = new CatLady();
 
 
@@ -35,11 +34,14 @@ function setup() {
     let canvas = createCanvas(WIDTH, WIDTH);
     canvas.parent("canvas");
 
-    setInterval(catLady.distanceCheck, 600)
+    setInterval(catLady.catLadyMover, 600)
 }
 
+// records the game score
 let counter = 0;
 
+
+// the is the draw funtion, it runs at 60frames/second
 function draw() {
     game.drawGrid();
     game.drawTable();
@@ -69,8 +71,7 @@ function draw() {
         glasses3.setRandomPosition();
     }
 
-
-
+    // draws the catLady
     catLady.drawCatLady();
 
 
@@ -87,7 +88,7 @@ function draw() {
     }
 
 
-    // this ensures that if the player and catLady occupy the same position the catLadt is "scratched" and moved backwards two spaces
+    // this ensures that if the player and catLady occupy the same position the catLady is "scratched" and moved backwards two spaces
     if (catLady.col === player.col && catLady.row === player.row) {
         // catLady.setRandomPosition(1, 8);
         if (catLady.movementArr[0] === 'right') {

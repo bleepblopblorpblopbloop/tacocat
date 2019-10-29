@@ -25,24 +25,28 @@ class CatLady {
 
     }
 
+    // tells you tha the catLady is moving to the right
     catLadyMoveRight() {
         this.col += SQUARE_SIDE;
         this.movementArr.pop()
         this.movementArr.push('right')
     }
 
+    // tells you tha the catLady is moving down
     catLadyMoveDown() {
         this.row += SQUARE_SIDE;
         this.movementArr.pop()
         this.movementArr.push('down')
     }
 
+    // tells you tha the catLady is moving to the left
     catLadyMoveLeft() {
         this.col -= SQUARE_SIDE;
         this.movementArr.pop()
         this.movementArr.push('left')
     }
 
+    // tells you tha the catLady is moving up
     catLadyMoveUp() {
         this.row -= SQUARE_SIDE;
         this.movementArr.pop()
@@ -50,7 +54,40 @@ class CatLady {
     }
 
 
-    distanceCheck = () => {
+    // *** ANDRE is going to help with this in the morning ****
+
+    // distanceCheck() {
+
+    //     x = this.col;
+    //     y = this.row;
+
+
+    //     let drinkLocations = [{
+    //             glasses.x = MATH.abs(x - glasses.col),
+    //             glasses.y = MATH.abs(y - glasses.row)
+    //         },
+    //         {
+    //             glasses2.x = MATH.abs(x - glasses2.col),
+    //             glasses2.y = MATH.abs(y - glasses2.row)
+    //         },
+    //         {
+    //             glasses3.x = MATH.abs(x - glasses3.col),
+    //             glasses3.y = MATH.abs(y - glasses3.row)
+    //         }
+    //     ]
+
+
+    //     average = drinkLocations.reduce(function (sum, value) {
+    //         return sum + value;
+    //     }, 0) / array.length;
+
+    //     return average;
+
+
+    // }
+
+    // calculates the difference between the catLady and one drink
+    catLadyMover = () => {
         if (this.col < glasses.col) {
             this.catLadyMoveRight();
             console.log(`x: ${this.col}`)

@@ -8,6 +8,7 @@ class Player {
         this.tacocat;
     }
 
+    // this is the logic that moves the player (tacocat) down
     moveDown() {
         if (this.row < (WIDTH - (WIDTH * 0.1))) {
             this.row += SQUARE_SIDE;
@@ -15,6 +16,7 @@ class Player {
         }
     }
 
+    // this is the logic that moves the player (tacocat) up
     moveUp() {
         if (this.row > 0) {
             this.row -= SQUARE_SIDE;
@@ -23,12 +25,14 @@ class Player {
         }
     }
 
+    // this is the logic that moves the player (tacocat) to the left
     moveLeft() {
         if (this.col < HEIGHT && this.col >= (HEIGHT * 0.1)) {
             this.col -= SQUARE_SIDE;
         }
     }
 
+    // this is the logic that moves the player (tacocat) to the right
     moveRight() {
         if (this.col < (HEIGHT - (HEIGHT * 0.1))) {
             this.col += SQUARE_SIDE;
@@ -59,6 +63,7 @@ class Player {
 
     }
 
+    // connects the key pressed to the players directional movement
     keyPressed() {
         if (keyCode === 37) {
             this.moveLeft();
@@ -72,6 +77,7 @@ class Player {
     }
 }
 
+// starts the player at paerticular position 
 const player = new Player(0, 0);
 
 console.log(player.col, player.row);
