@@ -47,3 +47,6 @@
 // ladyPosition.x += dx
 // ladyPosition.y += dy
 // console.log(ladyPosition.x)
+
+
+if ()

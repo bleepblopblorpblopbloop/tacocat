@@ -1,14 +1,26 @@
 class CatLady {
     constructor(col, row) {
-        this.setRandomPosition()
+        // this sets a random position within a pre-defined range - allows us to have the lady appear inside the edge of the table
+        this.setRandomPosition(1, 8)
     }
 
     // this sets the initial position of the catLady
-    setRandomPosition() {
-
-        this.col = Math.floor((Math.random() * 10)) * SQUARE_SIDE;
-        this.row = Math.floor((Math.random() * 10)) * SQUARE_SIDE;
+    setRandomPosition(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        this.col = Math.floor((Math.random() * (max - min + 1)) + min) * (SQUARE_SIDE);
+        this.row = Math.floor((Math.random() * (max - min + 1)) + min) * (SQUARE_SIDE);
     }
+
+
+    //       // Function to generate random number  
+    //     function randomNumber(min, max) {  
+    //     min = Math.ceil(min); 
+    //     max = Math.floor(max); 
+    //     return Math.floor(Math.random() * (max - min + 1)) + min; 
+    // }  
+
+    // document.write("Random Number between 1 and 10: ")
 
 
     // this preloads the catLady image
@@ -38,4 +50,6 @@ class CatLady {
         }
 
     }
+
+
 }

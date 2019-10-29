@@ -24,7 +24,7 @@ function setup() {
     let canvas = createCanvas(WIDTH, WIDTH);
     canvas.parent("canvas");
 
-    setInterval(catLady.distanceCheck, 500)
+    setInterval(catLady.distanceCheck, 600)
 }
 
 
@@ -44,14 +44,15 @@ function draw() {
 
 
     catLady.drawCatLady();
+    console.log(catLady.drawCatLady())
 
     // this ensures that the drink and the catLady do not end up in the same position
     if (catLady.col === glasses.col && catLady.row === glasses.row) {
-        glasses.setRandomPosition();
+        glasses.setRandomPosition(1, 8);
     }
 
     // this ensures that the player and catLady  can never occupy the same position
     if (catLady.col === player.col && catLady.row === player.row) {
-        catLady.setRandomPosition();
+        catLady.setRandomPosition(1, 8);
     }
 }

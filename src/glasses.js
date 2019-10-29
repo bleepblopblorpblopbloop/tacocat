@@ -1,12 +1,15 @@
 class Glasses {
     constructor() {
-        this.setRandomPosition()
+        // this sets a random position within a pre-defined range - allows us to have the glasses appear inside the edge of the table
+        this.setRandomPosition(1, 8)
     }
 
     // this seets the intial position of the beer to a random position on the board
-    setRandomPosition() {
-        this.col = Math.floor((Math.random() * 10)) * SQUARE_SIDE;
-        this.row = Math.floor((Math.random() * 10)) * SQUARE_SIDE;
+    setRandomPosition(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        this.col = Math.floor((Math.random() * (max - min + 1)) + min) * (SQUARE_SIDE);
+        this.row = Math.floor((Math.random() * (max - min + 1)) + min) * (SQUARE_SIDE);
     }
 
 
