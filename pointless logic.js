@@ -7,8 +7,6 @@
 // }
 // pop()
 
-
-
 // ****THIS ONE WORKS WHEN PLACED IN MAIN.JS - it just doesn't move the picture but the character actually moves accorduing to the math
 // // determines the distance between the catlady and the drink
 
@@ -40,7 +38,6 @@
 //     console.log(`y: ${ladyPosition.y}`)
 // }
 
-
 // move
 // delta is the elapsed time in seconds
 // SPEED is the speed in units per second (UPS)
@@ -48,5 +45,11 @@
 // ladyPosition.y += dy
 // console.log(ladyPosition.x)
 
+//       // Function to generate random number
+//     function randomNumber(min, max) {
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//     return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
 
-if ()
+// document.write("Random Number between 1 and 10: ")
