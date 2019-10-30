@@ -3,7 +3,8 @@ let beer;
 let ryeAndCoke;
 let martini;
 let pizza;
-
+let tableImage;
+let spaceBackground;
 let startButton;
 
 // preloads the different elements of the game that require an image
@@ -13,6 +14,7 @@ function preload() {
     glasses2.preload();
     glasses3.preload();
     catLady.preload();
+    game.preload();
 }
 
 // recognizes the keys being pressed in order to direct tacocat
@@ -36,11 +38,12 @@ let catLady = new CatLady();
 
 function setup() {
     // builds the canvas to a certain size
-    let canvas = createCanvas(WIDTH, WIDTH);
+    let canvas = createCanvas(window.innerWidth, window.innerHeight);
+    // background(255, 0, 200);
     canvas.parent("canvas");
 
     // moves the catLady at a set speed
-    setInterval(catLady.catLadyMover, 1000)
+    setInterval(catLady.catLadyMover, 500)
 
     // sets the time interval for the games countdown timer
     setInterval(timeIt, 1000);
@@ -48,28 +51,29 @@ function setup() {
 }
 
 
+
 // records the game score
 let counter = 0;
 // sets the number of seconds that the countdown timer for gameplay will run
 let timerValue = 30;
+// changes the value of the game timer
+function timeIt() {
+    if (timerValue > 0) {
+        timerValue--;
+    }
+}
 
 // the is the draw funtion, it runs at 60frames/second
 function draw() {
 
 
-    // this draws the countdown timer ***it is currently hidden behind the game board***
-    background(220);
-    if (timerValue <= 60) {
-        text(timerValue + " SECONDS", WIDTH / 100, HEIGHT / 100);
-    }
-    if (timerValue == 0) {
-        text('GAME OVER!', WIDTH / 100, HEIGHT / 100);
-    }
-
     game.drawGrid();
     game.drawTable();
-
     player.draw();
+    game.drawScoreboardAndTimer();
+    game.drawScoreAndTimerText();
+
+
 
     // this allows tacocat to push the drinks
     if (glasses.col === player.col && glasses.row === player.row) {
@@ -163,6 +167,21 @@ function draw() {
         }
     }
 
+    // if the drink leaves the table a new drink is generated
+    if (glasses.col <= 79 || glasses.col >= 720 || glasses.row <= 79 || glasses.row >= 720) {
+        glasses.setRandomPosition(1, 8);
+        counter += 100;
+    } else if (glasses2.col <= 79 || glasses2.col >= 720 || glasses2.row <= 79 || glasses2.row >= 720) {
+        glasses2.setRandomPosition(1, 8);
+        counter += 100;
+    } else if (glasses3.col <= 79 || glasses3.col >= 720 || glasses3.row <= 79 || glasses3.row >= 720) {
+        glasses3.setRandomPosition(1, 8);
+        counter += 100;
+    }
+
+
+
+
     // draws the catLady
     catLady.drawCatLady();
     catLady.distanceCheck()
@@ -199,27 +218,17 @@ function draw() {
     }
 
 
-
-    // if the drink leaves the table a new drink is generated
-    if (glasses.col <= 79 || glasses.col >= 720 || glasses.row <= 79 || glasses.row >= 720) {
-        glasses.setRandomPosition(1, 8);
-        counter += 100;
-    } else if (glasses2.col <= 79 || glasses2.col >= 720 || glasses2.row <= 79 || glasses2.row >= 720) {
-        glasses2.setRandomPosition(1, 8);
-        counter += 100;
-    } else if (glasses3.col <= 79 || glasses3.col >= 720 || glasses3.row <= 79 || glasses3.row >= 720) {
-        glasses3.setRandomPosition(1, 8);
-        counter += 100;
+    // this draws the countdown timer
+    if (timerValue <= 60) {
+        text(timerValue + " SECONDS", WIDTH / 100, HEIGHT / 100);
     }
+    if (timerValue == 0) {
+        text('GAME OVER!', WIDTH / 100, HEIGHT / 100);
+        noLoop();
+    }
+    console.log(timerValue);
 
 
     console.log(counter)
     // console.log(catLady.movementArr)
-}
-
-
-function timeIt() {
-    if (timerValue > 0) {
-        timerValue--;
-    }
 }

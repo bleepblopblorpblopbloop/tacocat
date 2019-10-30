@@ -8,8 +8,7 @@ class Player {
 
     // this sets the initial position of our hero, tacocat
     setRandomPosition(min, max) {
-        // min = Math.ceil(min);
-        // max = Math.floor(max);
+
         this.col = Math.floor((Math.random() * (max - min + 1)) + min) * (SQUARE_SIDE);
         this.row = Math.floor((Math.random() * (max - min + 1)) + min) * (SQUARE_SIDE);
     }
@@ -49,24 +48,9 @@ class Player {
         this.tacocat = loadImage("../assets/tacocat.png")
     }
 
-    // let x = 0;
-    // let y = 0;
-    // let side = (WIDTH * 0.1);
 
     draw() {
         image(this.tacocat, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE)
-
-        // // moves x to the left by 1 pixel on every frame that the key is down
-        // if (keyIsDown(37) && x > 0) {
-        //     x--;
-        // } else if (keyIsDown(39) && x < WIDTH - side) {
-        //     x++;
-        // } else if (keyIsDown(40) && y > 0) {
-        //     y++;
-        // } else if (keyIsDown(38) && x > HEIGHT - side) {
-        //     y--;
-        // }
-
     }
 
     // connects the key pressed to the players directional movement
