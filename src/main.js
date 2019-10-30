@@ -64,11 +64,80 @@ function draw() {
 
     // prevents the different drinks from occupying the same space
     if (glasses.col === glasses2.col && glasses.row === glasses2.row) {
-        glasses2.setRandomPosition();
+        glasses2.keyPressed();
     } else if (glasses.col === glasses3.col && glasses.row === glasses3.row) {
-        glasses3.setRandomPosition();
+        glasses3.keyPressed();
     } else if (glasses2.col === glasses3.col && glasses2.row === glasses3.row) {
-        glasses3.setRandomPosition();
+        glasses3.keyPressed();
+    }
+
+    // this ensures that if the different glasses are pushed into each other by tacocat the stationary glass will be pushed along with the other
+    if (glasses.col === glasses2.col && glasses.row === glasses2.row /*&& player.keyPressed() === true*/ ) {
+
+        if (glasses.movementArr[0] === 'right') {
+            glasses.row.keyPressed();
+        } else if (glasses.movementArr[0] === 'down') {
+            glasses.col.keyPressed();
+        } else if (glasses.movementArr[0] === 'left') {
+            glasses.row.keyPressed();
+        } else if (glasses.movementArr[0] === 'up') {
+            glasses.col.keyPressed();
+        }
+
+    } else if (glasses.col === glasses3.col && glasses.row === glasses3.row /* && player.keyPressed() === true*/ ) {
+        if (glasses.movementArr[0] === 'right') {
+            glasses.row.keyPressed();
+        } else if (glasses.movementArr[0] === 'down') {
+            glasses.col.keyPressed();
+        } else if (glasses.movementArr[0] === 'left') {
+            glasses.row.keyPressed();
+        } else if (glasses.movementArr[0] === 'up') {
+            glasses.col.keyPressed();
+        }
+
+    } else if (glasses2.col === glasses3.col && glasses2.row === glasses3.row /* && player.keyPressed() === true*/ ) {
+        if (glasses2.movementArr[0] === 'right') {
+            glasses2.row.keyPressed();
+        } else if (glasses2.movementArr[0] === 'down') {
+            glasses2.col.keyPressed();
+        } else if (glasses2.movementArr[0] === 'left') {
+            glasses2.row.keyPressed();
+        } else if (glasses2.movementArr[0] === 'up') {
+            glasses2.col.keyPressed();
+        }
+
+    } else if (glasses2.col === glasses.col && glasses2.row === glasses.row /* && player.keyPressed() === true*/ ) {
+        if (glasses2.movementArr[0] === 'right') {
+            glasses2.row.keyPressed();
+        } else if (glasses2.movementArr[0] === 'down') {
+            glasses2.col.keyPressed();
+        } else if (glasses2.movementArr[0] === 'left') {
+            glasses2.row.keyPressed();
+        } else if (glasses2.movementArr[0] === 'up') {
+            glasses2.col.keyPressed();
+        }
+
+    } else if (glasses3.col === glasses.col && glasses3.row === glasses.row /* && player.keyPressed() === true*/ ) {
+        if (glasses3.movementArr[0] === 'right') {
+            glasses3.row.keyPressed();
+        } else if (glasses3.movementArr[0] === 'down') {
+            glasses3.col.keyPressed();
+        } else if (glasses3.movementArr[0] === 'left') {
+            glasses3.row.keyPressed();
+        } else if (glasses3.movementArr[0] === 'up') {
+            glasses3.col.keyPressed();
+        }
+
+    } else if (glasses3.col === glasses2.col && glasses3.row === glasses2.row /* && player.keyPressed() === true*/ ) {
+        if (glasses3.movementArr[0] === 'right') {
+            glasses3.row.keyPressed();
+        } else if (glasses3.movementArr[0] === 'down') {
+            glasses3.col.keyPressed();
+        } else if (glasses3.movementArr[0] === 'left') {
+            glasses3.row.keyPressed();
+        } else if (glasses3.movementArr[0] === 'up') {
+            glasses3.col.keyPressed();
+        }
     }
 
     // draws the catLady
@@ -90,7 +159,6 @@ function draw() {
 
     // this ensures that if the player and catLady occupy the same position the catLady is "scratched" and moved backwards two spaces
     if (catLady.col === player.col && catLady.row === player.row) {
-        // catLady.setRandomPosition(1, 8);
         if (catLady.movementArr[0] === 'right') {
             catLady.row += (SQUARE_SIDE * 2);
             catLady.col += (SQUARE_SIDE);
@@ -106,6 +174,7 @@ function draw() {
         }
 
     }
+
 
 
     // if the drink leaves the table a new drink is generated

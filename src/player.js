@@ -1,11 +1,17 @@
-// let side = WIDTH / 10;
-// let moveSpace = WIDTH / 100;
-
 class Player {
     constructor(col, row) {
-        this.col = col;
-        this.row = row;
+        this.setRandomPosition(1, 8);
+        // this.col = col;
+        // this.row = row;
         this.tacocat;
+    }
+
+    // this sets the initial position of our hero, tacocat
+    setRandomPosition(min, max) {
+        // min = Math.ceil(min);
+        // max = Math.floor(max);
+        this.col = Math.floor((Math.random() * (max - min + 1)) + min) * (SQUARE_SIDE);
+        this.row = Math.floor((Math.random() * (max - min + 1)) + min) * (SQUARE_SIDE);
     }
 
     // this is the logic that moves the player (tacocat) down
@@ -78,6 +84,6 @@ class Player {
 }
 
 // starts the player at paerticular position 
-const player = new Player(0, 0);
+const player = new Player();
 
 console.log(player.col, player.row);
