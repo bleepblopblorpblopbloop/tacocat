@@ -4,6 +4,8 @@ let ryeAndCoke;
 let martini;
 let pizza;
 
+let startButton;
+
 // preloads the different elements of the game that require an image
 function preload() {
     player.preload();
@@ -30,19 +32,40 @@ const glasses3 = new Glasses('rye_and_coke');
 let catLady = new CatLady();
 
 
+
+
 function setup() {
+    // builds the canvas to a certain size
     let canvas = createCanvas(WIDTH, WIDTH);
     canvas.parent("canvas");
 
-    setInterval(catLady.catLadyMover, 600)
+    // moves the catLady at a set speed
+    setInterval(catLady.catLadyMover, 1000)
+
+    // sets the time interval for the games countdown timer
+    setInterval(timeIt, 1000);
+
 }
+
 
 // records the game score
 let counter = 0;
-
+// sets the number of seconds that the countdown timer for gameplay will run
+let timerValue = 30;
 
 // the is the draw funtion, it runs at 60frames/second
 function draw() {
+
+
+    // this draws the countdown timer ***it is currently hidden behind the game board***
+    background(220);
+    if (timerValue <= 60) {
+        text(timerValue + " SECONDS", WIDTH / 100, HEIGHT / 100);
+    }
+    if (timerValue == 0) {
+        text('GAME OVER!', WIDTH / 100, HEIGHT / 100);
+    }
+
     game.drawGrid();
     game.drawTable();
 
@@ -192,4 +215,11 @@ function draw() {
 
     console.log(counter)
     // console.log(catLady.movementArr)
+}
+
+
+function timeIt() {
+    if (timerValue > 0) {
+        timerValue--;
+    }
 }
