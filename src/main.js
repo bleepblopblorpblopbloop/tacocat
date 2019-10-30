@@ -73,7 +73,7 @@ function draw() {
 
     // draws the catLady
     catLady.drawCatLady();
-
+    catLady.distanceCheck()
 
     // this ensures that the drink and the catLady do not end up in the same position
     if (catLady.col === glasses.col && catLady.row === glasses.row) {

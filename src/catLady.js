@@ -56,48 +56,62 @@ class CatLady {
 
     // *** ANDRE is going to help with this in the morning ****
 
-    // distanceCheck() {
-
-    //     x = this.col;
-    //     y = this.row;
+    distanceCheck() {
 
 
-    //     let drinkLocations = [{
-    //             glasses.x = MATH.abs(x - glasses.col),
-    //             glasses.y = MATH.abs(y - glasses.row)
-    //         },
-    //         {
-    //             glasses2.x = MATH.abs(x - glasses2.col),
-    //             glasses2.y = MATH.abs(y - glasses2.row)
-    //         },
-    //         {
-    //             glasses3.x = MATH.abs(x - glasses3.col),
-    //             glasses3.y = MATH.abs(y - glasses3.row)
-    //         }
-    //     ]
+        const glassesX = Math.abs(this.col - glasses.col)
+        const glassesY = Math.abs(this.row - glasses.row)
+        const glasses2X = Math.abs(this.col - glasses2.col)
+        const glasses2Y = Math.abs(this.row - glasses2.row)
+        const glasses3X = Math.abs(this.col - glasses3.col)
+        const glasses3Y = Math.abs(this.row - glasses3.row)
+
+        const average = array => {
+            const averageVal = array.reduce(function (sum, value) {
+                return sum + value;
+            }, 0) / array.length;
+            return averageVal
+        }
 
 
-    //     average = drinkLocations.reduce(function (sum, value) {
-    //         return sum + value;
-    //     }, 0) / array.length;
+        let drinkLocations = [
+            [glassesX, glassesY],
+            [glasses2X, glasses2Y],
+            [glasses3X, glasses3Y]
+        ]
 
-    //     return average;
+        const drinkDistances = drinkLocations.map(function (el) {
+            return average(el)
+        })
 
+        const drinkDistancesMin = Math.min(...drinkDistances)
+        console.log(Math.min(...drinkDistances))
 
-    // }
+        const allGlasses = [glasses, glasses2, glasses3];
+
+        const position = drinkDistances.indexOf(drinkDistancesMin)
+
+        this.focused = allGlasses[position];
+
+        if (allGlasses[position] === undefined) {
+            this.focused = allGlasses[0]
+        }
+        console.log('GLASS FOCUSED IN POSITION ', this.focused)
+
+    }
 
     // calculates the difference between the catLady and one drink
     catLadyMover = () => {
-        if (this.col < glasses.col) {
+        if (this.col < this.focused.col) {
             this.catLadyMoveRight();
             console.log(`x: ${this.col}`)
-        } else if (this.row < glasses.row) {
+        } else if (this.row < this.focused.row) {
             this.catLadyMoveDown();
             console.log(`y: ${this.row}`)
-        } else if (this.col > glasses.col) {
+        } else if (this.col > this.focused.col) {
             this.catLadyMoveLeft();
             console.log(`x: ${this.col}`)
-        } else if (this.row > glasses.row) {
+        } else if (this.row > this.focused.row) {
             this.catLadyMoveUp();
             console.log(`y: ${this.row}`)
         }
