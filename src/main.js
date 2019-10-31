@@ -2,9 +2,7 @@ let tacocat;
 let beer;
 let ryeAndCoke;
 let martini;
-let pizza;
 let spaceBackground;
-let myFont;
 let song;
 let ariba;
 let sadTrombone;
@@ -39,7 +37,6 @@ const glasses3 = new Glasses('rye_and_coke');
 
 // generates a new catLady to start the game
 let catLady = new CatLady();
-
 
 
 function setup() {
