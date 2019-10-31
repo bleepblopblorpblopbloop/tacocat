@@ -64,6 +64,10 @@ class Player {
         } else if (keyCode === 38) {
             this.moveUp();
         }
+
+        if (keyCode === 13) {
+            window.location.reload();
+        }
     }
 }
 

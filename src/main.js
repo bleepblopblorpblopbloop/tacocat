@@ -3,9 +3,12 @@ let beer;
 let ryeAndCoke;
 let martini;
 let pizza;
-let tableImage;
 let spaceBackground;
-let startButton;
+let myFont;
+let song;
+let ariba;
+let sadTrombone;
+let andalay;
 
 // preloads the different elements of the game that require an image
 function preload() {
@@ -15,6 +18,10 @@ function preload() {
     glasses3.preload();
     catLady.preload();
     game.preload();
+    song = loadSound('../assets/mariachiFull.m4a');
+    ariba = loadSound('../assets/Arriba.mov');
+    sadTrombone = loadSound('../assets/sad-trombone.wav');
+    andalay = loadSound('../assets/andalay.mov')
 }
 
 // recognizes the keys being pressed in order to direct tacocat
@@ -35,27 +42,34 @@ let catLady = new CatLady();
 
 
 
-
 function setup() {
+
     // builds the canvas to a certain size
     let canvas = createCanvas(window.innerWidth, window.innerHeight);
+
     // background(255, 0, 200);
     canvas.parent("canvas");
 
     // moves the catLady at a set speed
-    setInterval(catLady.catLadyMover, 500)
+    setInterval(catLady.catLadyMover, 600)
 
     // sets the time interval for the games countdown timer
     setInterval(timeIt, 1000);
 
+    textFont("PressStart2P-Regular");
+
+    song.setVolume(0.1)
+    song.play();
+
 }
+
 
 
 
 // records the game score
 let counter = 0;
 // sets the number of seconds that the countdown timer for gameplay will run
-let timerValue = 30;
+let timerValue = 5;
 // changes the value of the game timer
 function timeIt() {
     if (timerValue > 0) {
@@ -72,6 +86,7 @@ function draw() {
     player.draw();
     game.drawScoreboardAndTimer();
     game.drawScoreAndTimerText();
+
 
 
 
@@ -170,12 +185,18 @@ function draw() {
     // if the drink leaves the table a new drink is generated
     if (glasses.col <= 79 || glasses.col >= 720 || glasses.row <= 79 || glasses.row >= 720) {
         glasses.setRandomPosition(1, 8);
+        ariba.setVolume(1);
+        ariba.play();
         counter += 100;
     } else if (glasses2.col <= 79 || glasses2.col >= 720 || glasses2.row <= 79 || glasses2.row >= 720) {
         glasses2.setRandomPosition(1, 8);
+        ariba.setVolume(1);
+        ariba.play();
         counter += 100;
     } else if (glasses3.col <= 79 || glasses3.col >= 720 || glasses3.row <= 79 || glasses3.row >= 720) {
         glasses3.setRandomPosition(1, 8);
+        ariba.setVolume(1);
+        ariba.play();
         counter += 100;
     }
 
@@ -188,12 +209,18 @@ function draw() {
 
     // this ensures that the drink and the catLady do not end up in the same position
     if (catLady.col === glasses.col && catLady.row === glasses.row) {
+        sadTrombone.setVolume(1);
+        sadTrombone.play();
         glasses.setRandomPosition(1, 8);
         counter -= 100;
     } else if (catLady.col === glasses2.col && catLady.row === glasses2.row) {
+        sadTrombone.setVolume(1);
+        sadTrombone.play();
         glasses2.setRandomPosition(1, 8);
         counter -= 100;
     } else if (catLady.col === glasses3.col && catLady.row === glasses3.row) {
+        sadTrombone.setVolume(1);
+        sadTrombone.play();
         glasses3.setRandomPosition(1, 8);
         counter -= 100;
     }
@@ -202,15 +229,23 @@ function draw() {
     // this ensures that if the player and catLady occupy the same position the catLady is "scratched" and moved backwards two spaces
     if (catLady.col === player.col && catLady.row === player.row) {
         if (catLady.movementArr[0] === 'right') {
+            andalay.setVolume(1);
+            andalay.play();
             catLady.row += (SQUARE_SIDE * 2);
             catLady.col += (SQUARE_SIDE);
         } else if (catLady.movementArr[0] === 'down') {
+            andalay.setVolume(1);
+            andalay.play();
             catLady.col += (SQUARE_SIDE * 2);
             catLady.row += (SQUARE_SIDE);
         } else if (catLady.movementArr[0] === 'left') {
+            andalay.setVolume(1);
+            andalay.play();
             catLady.row -= (SQUARE_SIDE * 2);
             catLady.col -= (SQUARE_SIDE);
         } else if (catLady.movementArr[0] === 'up') {
+            andalay.setVolume(1);
+            andalay.play();
             catLady.col -= (SQUARE_SIDE * 2);
             catLady.row -= (SQUARE_SIDE);
         }
@@ -218,17 +253,15 @@ function draw() {
     }
 
 
-    // this draws the countdown timer
-    if (timerValue <= 60) {
-        text(timerValue + " SECONDS", WIDTH / 100, HEIGHT / 100);
-    }
+    // the ends the game once the timer reaches 0
     if (timerValue == 0) {
-        text('GAME OVER!', WIDTH / 100, HEIGHT / 100);
-        noLoop();
+        game.drawGameOver()
+        game.drawStartButton()
+        // allows you to reset the game and play again
+        if (keyPressed('ENTER')) {
+            setup();
+        }
+        noLoop()
     }
-    console.log(timerValue);
 
-
-    console.log(counter)
-    // console.log(catLady.movementArr)
 }
