@@ -81,5 +81,3 @@ class Player {
 
 // starts the player at paerticular position 
 const player = new Player();
-
-console.log(player.col, player.row);
