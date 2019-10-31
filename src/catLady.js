@@ -5,10 +5,10 @@ class CatLady {
         this.movementArr = ['start']
     }
 
+
     // this sets the initial position of the catLady
     setRandomPosition(min, max) {
-        // min = Math.ceil(min);
-        // max = Math.floor(max);
+
         this.col = Math.floor((Math.random() * (max - min + 1)) + min) * (SQUARE_SIDE);
         this.row = Math.floor((Math.random() * (max - min + 1)) + min) * (SQUARE_SIDE);
     }
@@ -19,11 +19,13 @@ class CatLady {
         this.catLady = loadImage("../assets/catLady.png")
     }
 
+
     // positions the catLady on the grid
     drawCatLady() {
         image(this.catLady, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE)
 
     }
+
 
     // tells you that the catLady is moving to the right
     catLadyMoveRight() {
@@ -32,12 +34,14 @@ class CatLady {
         this.movementArr.push('right')
     }
 
+
     // tells you that the catLady is moving down
     catLadyMoveDown() {
         this.row += SQUARE_SIDE;
         this.movementArr.pop()
         this.movementArr.push('down')
     }
+
 
     // tells you that the catLady is moving to the left
     catLadyMoveLeft() {
@@ -46,6 +50,7 @@ class CatLady {
         this.movementArr.push('left')
     }
 
+
     // tells you that the catLady is moving up
     catLadyMoveUp() {
         this.row -= SQUARE_SIDE;
@@ -53,8 +58,6 @@ class CatLady {
         this.movementArr.push('up')
     }
 
-
-    // *** ANDRE is going to help with this in the morning ****
 
     distanceCheck() {
 
@@ -75,6 +78,7 @@ class CatLady {
             return averageVal
         }
 
+
         // variable containing an array with the location of each drink on the board
         let drinkLocations = [
             [glassesX, glassesY],
@@ -82,22 +86,28 @@ class CatLady {
             [glasses3X, glasses3Y]
         ]
 
+
         // function returning an array representing the distance from the catLady to each drink
         const drinkDistances = drinkLocations.map(function (el) {
             return average(el)
         })
 
+
         // variable containing the distance value of the closest drink
         const drinkDistancesMin = Math.min(...drinkDistances)
+
 
         // variable containg the index of the closest drink
         const position = drinkDistances.indexOf(drinkDistancesMin)
 
+
         // variable containing location info for all of the glasses on the board
         const allGlasses = [glasses, glasses2, glasses3];
 
+
         // variable containg the index of the 
         this.focused = allGlasses[position];
+
 
         // if statement forcing the catLady to make a decision if two glasses are the same distance
         if (allGlasses[position] === undefined) {
@@ -105,6 +115,7 @@ class CatLady {
         }
 
     }
+
 
     // moves the catLady towards the closest drink on the board 
     catLadyMover = () => {

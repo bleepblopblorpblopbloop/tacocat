@@ -1,5 +1,6 @@
 class Glasses {
-    // constructor(type) {
+
+
     constructor(drink) {
 
         // the defines a drink
@@ -8,8 +9,10 @@ class Glasses {
         // this sets a random position within a pre-defined range - allows us to have the glasses appear inside the edge of the table
         this.setRandomPosition(1, 8);
 
+        // records the most recent movement of the glass currently being pushed by tacocat
         this.movementArr = ['start']
     }
+
 
     // this seets the intial position of the beer to a random position on the board
     setRandomPosition(min, max) {
@@ -19,10 +22,12 @@ class Glasses {
 
     }
 
-    // preloads the drink images
+
+    // preloads the different drink images
     preload() {
         this.img = loadImage(`../assets/${this.drinks}.png`)
     }
+
 
     // positions the glass on the grid
     drawGlasses() {
@@ -38,12 +43,14 @@ class Glasses {
         this.movementArr.push('right')
     }
 
+
     // tells you that the glass is moving down
     glassMoveDown() {
         this.row += SQUARE_SIDE;
         this.movementArr.pop()
         this.movementArr.push('down')
     }
+
 
     // tells you that the glass is moving to the left
     glassMoveLeft() {
@@ -52,12 +59,14 @@ class Glasses {
         this.movementArr.push('left')
     }
 
+
     // tells you that the glass is moving up
     glassMoveUp() {
         this.row -= SQUARE_SIDE;
         this.movementArr.pop()
         this.movementArr.push('up')
     }
+
 
     // this moves the glass in the direction of the keyPress
     keyPressed() {

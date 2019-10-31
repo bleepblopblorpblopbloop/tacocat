@@ -1,9 +1,8 @@
 class Game {
+
+  // preloads the background image
   preload() {
-    // this.tableImage = loadImage("../assets/wood_table.png", 1);
     this.spaceBackground = loadImage("../assets/spaceBackground.png");
-    // this.pizzaCat = loadImage("https://media.giphy.com/media/xn9yw4QWUiC2Y/giphy.gif")
-    myFont = loadFont("../assets/PressStart2P-Regular.ttf");
   }
 
   // draws the outer edge of the main grid box/game area
@@ -39,29 +38,24 @@ class Game {
     fill("white");
     text(`${timerValue}`, 968, 500);
     push();
+
+    // once there is 9 seconds remaining the timer color changes to red 
     if (timerValue <= 9) {
       textSize(300);
       fill("red");
       textStyle(BOLD);
       text(`${timerValue}`, 968, 500);
     }
-    pop();
-    push();
-    // if (timerValue <= 0) {
-    //   // fill("white");
-    //   // image(this.pizzaCat, 1175, 390);
-    // }
+
+    // visualizes the player score (counter) on the screen
     pop();
     textSize(100);
     textStyle(BOLD);
     textFont("Arial", "BOLD");
     text(`Score: ${counter}`, 870, 180);
-    textSize(100);
-    textStyle(BOLD);
-    textFont("Arial", "BOLD");
   }
 
-
+  // when the timer reaches zero this visualizes a game over message
   drawGameOver() {
     textSize(120);
     textStyle(BOLD);
@@ -70,8 +64,8 @@ class Game {
     text("GAME OVER", 770, 640);
   }
 
+  // this is the rectangle container for the 'play again' message
   drawStartButton() {
-
     push();
     noFill();
     stroke(255, 255, 255);
@@ -79,6 +73,7 @@ class Game {
     rect(930, 780, 445, 110, 20);
     pop();
 
+    // this visualizes a message to "Press Enter" if you want to play again
     textSize(60);
     textStyle(BOLD);
     textFont("Arial", "BOLD");
@@ -87,6 +82,4 @@ class Game {
     fill("white");
     text("TO PLAY AGAIN", 915, 740);
   }
-
-
 }

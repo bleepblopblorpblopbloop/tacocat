@@ -64,8 +64,6 @@ function setup() {
 }
 
 
-
-
 // records the game score
 let counter = 0;
 // sets the number of seconds that the countdown timer for gameplay will run
@@ -77,17 +75,16 @@ function timeIt() {
     }
 }
 
+
+
 // the is the draw funtion, it runs at 60frames/second
 function draw() {
-
 
     game.drawGrid();
     game.drawTable();
     player.draw();
     game.drawScoreboardAndTimer();
     game.drawScoreAndTimerText();
-
-
 
 
     // this allows tacocat to push the drinks
@@ -99,10 +96,12 @@ function draw() {
         glasses3.keyPressed();
     }
 
+
     // draws the different glasses and catLady on the board
     glasses.drawGlasses();
     glasses2.drawGlasses();
     glasses3.drawGlasses();
+
 
     // prevents the different drinks from occupying the same space
     if (glasses.col === glasses2.col && glasses.row === glasses2.row) {
@@ -112,6 +111,7 @@ function draw() {
     } else if (glasses2.col === glasses3.col && glasses2.row === glasses3.row) {
         glasses3.keyPressed();
     }
+
 
     // this ensures that if the different glasses are pushed into each other by tacocat the stationary glass will be pushed along with the other
     if (glasses.col === glasses2.col && glasses.row === glasses2.row /*&& player.keyPressed() === true*/ ) {
@@ -182,6 +182,7 @@ function draw() {
         }
     }
 
+
     // if the drink leaves the table a new drink is generated
     if (glasses.col <= 79 || glasses.col >= 720 || glasses.row <= 79 || glasses.row >= 720) {
         glasses.setRandomPosition(1, 8);
@@ -201,11 +202,10 @@ function draw() {
     }
 
 
-
-
     // draws the catLady
     catLady.drawCatLady();
     catLady.distanceCheck()
+
 
     // this ensures that the drink and the catLady do not end up in the same position
     if (catLady.col === glasses.col && catLady.row === glasses.row) {
