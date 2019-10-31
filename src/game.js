@@ -82,4 +82,5 @@ class Game {
     fill("white");
     text("TO PLAY AGAIN", 915, 740);
   }
+
 }

@@ -64,7 +64,7 @@ function setup() {
 // records the game score
 let counter = 0;
 // sets the number of seconds that the countdown timer for gameplay will run
-let timerValue = 5;
+let timerValue = 30;
 // changes the value of the game timer
 function timeIt() {
     if (timerValue > 0) {
