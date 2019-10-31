@@ -2,7 +2,7 @@ class Game {
 
   // preloads the background image
   preload() {
-    this.spaceBackground = loadImage("../assets/spaceBackground.png");
+    this.spaceBackground = loadImage("assets/spaceBackground.png");
   }
 
   // draws the outer edge of the main grid box/game area

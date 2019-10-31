@@ -16,7 +16,7 @@ class CatLady {
 
     // this preloads the catLady image
     preload() {
-        this.catLady = loadImage("../assets/catLady.png")
+        this.catLady = loadImage("assets/catLady.png")
     }
 
 

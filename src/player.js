@@ -51,7 +51,7 @@ class Player {
 
     // preloads the tacocat image
     preload() {
-        this.tacocat = loadImage("../assets/tacocat.png")
+        this.tacocat = loadImage("assets/tacocat.png")
     }
 
     // visualizes the tacocat image

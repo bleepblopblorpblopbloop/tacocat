@@ -25,7 +25,7 @@ class Glasses {
 
     // preloads the different drink images
     preload() {
-        this.img = loadImage(`../assets/${this.drinks}.png`)
+        this.img = loadImage(`assets/${this.drinks}.png`)
     }
 
 

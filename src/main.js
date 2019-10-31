@@ -16,10 +16,10 @@ function preload() {
     glasses3.preload();
     catLady.preload();
     game.preload();
-    song = loadSound('../assets/mariachiFull.m4a');
-    ariba = loadSound('../assets/Arriba.mov');
-    sadTrombone = loadSound('../assets/sad-trombone.wav');
-    andalay = loadSound('../assets/andalay.mov')
+    song = loadSound('assets/mariachiFull.m4a');
+    ariba = loadSound('assets/Arriba.mov');
+    sadTrombone = loadSound('assets/sad-trombone.wav');
+    andalay = loadSound('assets/andalay.mov')
 }
 
 // recognizes the keys being pressed in order to direct tacocat
